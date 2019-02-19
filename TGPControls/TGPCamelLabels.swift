@@ -163,11 +163,7 @@ public class TGPCamelLabels: TGPCamelLabels_INTERFACE_BUILDER {
     public var animationDuration:TimeInterval = 0.15
     
     // ability to rotate labels
-    public var rotationAngel: CGFloat = 0 {
-        didSet {
-            layoutTrack()
-        }
-    }
+    public var rotationAngel: CGFloat = 0
 
     // Private
     var lastValue = NSNotFound
