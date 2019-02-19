@@ -161,6 +161,13 @@ public class TGPCamelLabels: TGPCamelLabels_INTERFACE_BUILDER {
     }
 
     public var animationDuration:TimeInterval = 0.15
+    
+    // ability to rotate labels
+    public var rotationAngel: CGFloat = 0 {
+        didSet {
+            layoutTrack()
+        }
+    }
 
     // Private
     var lastValue = NSNotFound
@@ -271,6 +278,7 @@ public class TGPCamelLabels: TGPCamelLabels_INTERFACE_BUILDER {
 
                 upLabel.alpha = 0.0
                 addSubview(upLabel)
+                upLabel.transform = CGAffineTransform(rotationAngle: rotationAngel)
 
                 let dnLabel = UILabel.init()
                 dnLabel.numberOfLines = numberOfLinesInLabel
@@ -290,6 +298,7 @@ public class TGPCamelLabels: TGPCamelLabels_INTERFACE_BUILDER {
                     return frame
                 }()
                 addSubview(dnLabel)
+                dnLabel.transform = CGAffineTransform(rotationAngle: rotationAngel)
 
                 centerX += tickSpacing
             }
